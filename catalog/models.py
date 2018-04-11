@@ -8,6 +8,7 @@ from decimal import Decimal
 from django.http import HttpResponseRedirect
 from datetime import datetime
 import stripe
+import yagmail
 
 
 
@@ -238,8 +239,13 @@ class Order(models.Model):
 
                 x.product.save()
                 x.save()
-
-
+                
+            '''send email'''
+            yag = yagmail.SMTP('shopfomo.me@gmail.com', 'POOPonast1ck')
+            contents = ['This is the body, and here is just text']
+            subject = 'Order %s Confirmation' % self.id
+            recipient = self.user.email
+            yag.send(recipient, subject, contents)
 
 class OrderItem(models.Model):
     '''A line item on an order'''

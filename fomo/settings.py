@@ -161,11 +161,11 @@ WSGI_APPLICATION = 'fomo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test',
+        'NAME': 'fomotrial',
         'USER': 'postgres',
-        'PASSWORD':'POOPonast1ck',
+        'PASSWORD':'password',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '5433',
                 }
             }
 
